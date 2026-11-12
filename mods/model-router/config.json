@@ -1,0 +1,76 @@
+{
+  "enabled": true,
+
+  "levels": {
+    "simple":   { "model": "haiku",  "effort": "low" },
+    "standard": { "model": "sonnet", "effort": "medium" },
+    "complex":  { "model": "opus",   "effort": "high" },
+    "critical": { "model": "opus",   "effort": "max" }
+  },
+
+  "thresholds": { "standard": 2, "complex": 5, "critical": 12 },
+
+  "length": {
+    "short": 60,
+    "medium": 300, "mediumWeight": 1,
+    "long": 1200, "longWeight": 2,
+    "veryLong": 4000, "veryLongWeight": 3
+  },
+
+  "keywords": {
+    "simple": {
+      "weight": -2,
+      "words": ["c'est quoi", "qu'est-ce que", "qu'est ce que", "combien", "definition", "reformule", "traduis", "typo",
+                "faute", "orthographe", "renomme", "rappelle-moi", "quelle commande", "git status", "git log", "git diff",
+                "git pull", "git push", "git add", "git commit", "git checkout", "what is", "rename", "rephrase"]
+    },
+    "standard": {
+      "weight": 1.5,
+      "words": ["ecri", "fonction", "function", "implement", "ajout", "composant", "component", "explique", "explain",
+                "test", "corrige", "modifie", "endpoint", "classe", "methode", "script", "redige", "write"]
+    },
+    "complex": {
+      "weight": 3,
+      "words": ["refactor", "architectur", "migr", "audit", "securite", "security", "vulnerab", "debug", "debogu",
+                "bug", "race condition", "fuite memoire", "memory leak", "performance", "optimis", "concurren",
+                "deadlock", "injection", "plusieurs fichiers", "multi-fichiers", "intermittent", "plan"]
+    },
+    "critical": {
+      "weight": 6,
+      "words": ["planifier", "plan detaille", "feuille de route", "roadmap", "strategie", "refonte complete", "from scratch",
+                "tout reecrire", "fort enjeu", "en production", "irreversible", "ambigu", "flou", "arbitrage",
+                "trade-off", "risques"]
+    }
+  },
+
+  "signals": {
+    "perFile": 0.75,
+    "manyFiles": 3,
+    "manyFilesBonus": 2,
+    "stackTrace": 2.5,
+    "codeBlock": 1,
+    "attachment": 1,
+    "why": 1,
+    "listItems": 4,
+    "listBonus": 1,
+    "longSessionTurns": 40,
+    "longSessionBonus": 1
+  },
+
+  "escalation": {
+    "similarity": 0.6,
+    "failedToolCalls": 2,
+    "correctionPatterns": ["^non\\b", "^nope\\b", "^no\\b", "^pas (ca|comme)", "^toujours", "^encore\\b",
+                           "ne (marche|fonctionne) (toujours |encore )?pas", "^c'est (faux|pas ca)", "tu t'es trompe",
+                           "^recommence", "^reessaie", "^retry", "^still\\b", "^wrong\\b", "^that's not", "doesn't work"]
+  },
+
+  "prefixes": {
+    "!fast": "simple", "!simple": "simple",
+    "!std": "standard", "!standard": "standard",
+    "!deep": "complex", "!complex": "complex",
+    "!max": "critical", "!critical": "critical"
+  },
+
+  "logMaxLines": 5000
+}

@@ -1,0 +1,5 @@
+{
+  "name": "model-router",
+  "version": "0.1.0",
+  "description": "Choisit automatiquement le modèle Claude et l'effort adaptés à chaque message (règles locales, sans appel de modèle)."
+}
