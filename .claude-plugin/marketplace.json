@@ -1,0 +1,12 @@
+{
+  "name": "patisserie-mods",
+  "owner": { "name": "ghc5h2z5c7-del" },
+  "description": "Mods Claude Code du dépôt patisserie-pwa",
+  "plugins": [
+    {
+      "name": "model-router",
+      "source": "./mods/model-router",
+      "description": "Choisit automatiquement le modèle et l'effort adaptés à chaque message."
+    }
+  ]
+}
